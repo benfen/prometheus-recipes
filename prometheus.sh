@@ -67,10 +67,22 @@ do
 done
 
 if [ "on" == $delete ]; then
-    kubectl delete -f basic
+    kubectl delete -f core
+    kubectl delete -f core/prometheus
+    kubectl delete -f extra/alertmanager
+    kubectl delete -f extra/grafana
+    kubectl delete -f extra/kube-state-metrics
+    kubectl delete -f extra/node-exporter
+
     kubectl delete -f $roleBindingFile
     kubectl delete -f $roleFile
 else
-    kubectl apply -f basic
+    kubectl apply -f core
+    kubectl apply -f core/prometheus
+    kubectl apply -f extra/alertmanager
+    kubectl apply -f extra/grafana
+    kubectl apply -f extra/kube-state-metrics
+    kubectl apply -f extra/node-exporter
+
     kubectl apply -f build
 fi
