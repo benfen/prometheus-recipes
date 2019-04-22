@@ -19,4 +19,7 @@ printf "Value of '%s': %s\\n" 'namespaces' "$_arg_namespaces"
 export namespaces=$_arg_namespaces
 export delete=$_arg_delete
 
-$(dirname $0)/prometheus.sh
+(
+    cd $(dirname $0)
+    ./prometheus.sh
+)
