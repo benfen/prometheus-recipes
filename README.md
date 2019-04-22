@@ -9,7 +9,7 @@ _Only apply one set of configurations to a cluster._
 With that being said, you can apply a configuration to as many namespaces within a cluster as you would like.  Just pass a comma-separated list of namespaces to apply it to.
 
 ```bash
-# This will create all four of these namespaces (if they don't exist) and ensure that prometheus watches them.
+# This will create all three of these namespaces (if they don't exist) and ensure that prometheus watches them.
 ./prometheus-recipes.sh testns,test2,other-namespace
 ```
 
