@@ -79,10 +79,22 @@ if [ "on" == $delete ]; then
 else
     kubectl apply -f core
     kubectl apply -f core/prometheus
-    kubectl apply -f extra/alertmanager
-    kubectl apply -f extra/grafana
-    kubectl apply -f extra/kube-state-metrics
-    kubectl apply -f extra/node-exporter
+  
+    if [ "on" == $deploy_alertmanager ]; then
+        kubectl apply -f extra/alertmanager
+    fi
+
+    if [ "on" == $deploy_grafana ]; then
+        kubectl apply -f extra/grafana
+    fi
+
+    if [ "on" == $deploy_kube_state_metrics ]; then
+        kubectl apply -f extra/kube-state-metrics
+    fi
+
+    if [ "on" == $deploy_node_exporter ]; then
+        kubectl apply -f extra/node-exporter
+    fi
 
     kubectl apply -f build
 fi
