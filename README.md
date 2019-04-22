@@ -13,11 +13,3 @@ The basic recipe is effectively the kube-prometheus [example](https://github.com
 ```
 $ kubectl apply -f basic/
 ```
-
-### Istio
-
-The Istio recipe includes the additional service monitor to scrape Istio telemetry endpoints and bundles the Istio dashboards in with Grafana. Before using this recipe, be sure to have Istio running in the `istio-system` namespace, then apply the configurations:
-
-```
-$ kubectl apply -f istio/
-```
