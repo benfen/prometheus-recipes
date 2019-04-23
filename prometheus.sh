@@ -69,10 +69,11 @@ done
 if [ "on" == $delete ]; then
     kubectl delete -f core
     kubectl delete -f core/prometheus
-    kubectl delete -f extra/alertmanager
-    kubectl delete -f extra/grafana
-    kubectl delete -f extra/kube-state-metrics
-    kubectl delete -f extra/node-exporter
+    kubectl delete -f extra/alertmanager --ignore-not-found
+    kubectl delete -f extra/grafana --ignore-not-found
+    kubectl delete -f extra/kube-state-metrics --ignore-not-found
+    kubectl delete -f extra/node-exporter--ignore-not-found
+    kubectl delete -f extra/prometheus-adapter --ignore-not-found
 
     kubectl delete -f $roleBindingFile
     kubectl delete -f $roleFile
@@ -94,6 +95,10 @@ else
 
     if [ "on" == $deploy_node_exporter ]; then
         kubectl apply -f extra/node-exporter
+    fi
+
+    if [ "on" == $deploy_prometheus_adapter ]; then
+        kubectl apply -f extra/prometheus-adapter
     fi
 
     kubectl apply -f build
