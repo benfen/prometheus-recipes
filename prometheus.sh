@@ -72,7 +72,7 @@ if [ "on" == $delete ]; then
     kubectl delete -f extra/alertmanager --ignore-not-found
     kubectl delete -f extra/grafana --ignore-not-found
     kubectl delete -f extra/kube-state-metrics --ignore-not-found
-    kubectl delete -f extra/node-exporter--ignore-not-found
+    kubectl delete -f extra/node-exporter --ignore-not-found
     kubectl delete -f extra/prometheus-adapter --ignore-not-found
 
     kubectl delete -f $roleBindingFile
