@@ -1,6 +1,6 @@
 # Prometheus Recipes
 
-This repository is a collection of generated [kube-prometheus](https://github.com/coreos/prometheus-operator/tree/master/contrib/kube-prometheus) configurations used to get up and running with Prometheus (and friends) quickly in a development environment.
+This repository is a collection of generated [kube-prometheus](https://github.com/coreos/kube-prometheus/) configurations used to get up and running with Prometheus (and friends) quickly in a development environment.
 
 ## Choose a Recipe
 
@@ -43,3 +43,7 @@ spec:
 ```
 
 And that's it!
+
+## Troubleshooting
+
+If you run into issues creating the role bindings (particularly on gke), run `kubectl create clusterrolebinding $binding_name --clusterrole=cluster-admin --user=$my_username` to add the appropriate permissions.
