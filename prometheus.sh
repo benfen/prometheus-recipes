@@ -77,7 +77,14 @@ if [ "on" == $delete ]; then
 
     kubectl delete -f $roleBindingFile
     kubectl delete -f $roleFile
+
+    # Delete the namespace last to avoid any collisions
+    kubectl delete -f core/namespace
 else
+    # Create the namespace first and then wait just a moment to make sure it exists
+    kubectl apply -f core/namespace
+    sleep 1
+
     kubectl apply -f core
     kubectl apply -f core/prometheus
   
