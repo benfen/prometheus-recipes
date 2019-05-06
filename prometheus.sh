@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 defaults="default kube-system monitoring"
 
 namespaceFile="build/namespaces.yml"
