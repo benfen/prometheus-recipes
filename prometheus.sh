@@ -67,8 +67,8 @@ do
 done
 
 if [ "on" == $delete ]; then
-    kubectl delete -f core
-    kubectl delete -f core/prometheus
+    kubectl delete -f core --ignore-not-found
+    kubectl delete -f core/prometheus --ignore-not-found
     kubectl delete -f extra/alertmanager --ignore-not-found
     kubectl delete -f extra/grafana --ignore-not-found
     kubectl delete -f extra/kube-state-metrics --ignore-not-found
