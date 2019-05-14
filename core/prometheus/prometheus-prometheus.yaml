@@ -11,6 +11,8 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
+  externalUrl: http://localhost:9090/prometheus/
+  routePrefix: prometheus/
   baseImage: quay.io/prometheus/prometheus
   nodeSelector:
     beta.kubernetes.io/os: linux
